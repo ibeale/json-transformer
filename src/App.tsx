@@ -77,6 +77,20 @@ function App() {
         </li>
       );
     }
+    else if(objType == "[object Array]"){
+      return (
+        <li>
+          <Button onClick={() => setter(propertyString)}>
+            {propertyString}
+          </Button>
+          <ul>
+            {obj.map((item: any, idx: number) =>
+              createLists(item, propertyString, idx.toString(), setter)
+            )}
+          </ul>
+        </li>
+      )
+    }
     return (
       <li>
         <Button onClick={() => setter(propertyString)}>{propertyString}</Button>
